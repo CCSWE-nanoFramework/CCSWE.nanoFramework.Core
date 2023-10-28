@@ -14,7 +14,7 @@
 		<description>Shared utility classes.</description>
 		<repository type="git" url="https://github.com/CoryCharlton/CCSWE.nanoFramework.Mediator" commit="$commit$"/>
 		<copyright>Copyright (c) Cory Charlton</copyright>
-		<tags>nanoFramework C# csharp netmf netnf ccswe mediator</tags>
+		<tags>nanoFramework C# csharp netmf netnf ccswe core</tags>
 		<dependencies>
 			<dependency id="nanoFramework.CoreLibrary" version="1.14.2"/>
 		</dependencies>
