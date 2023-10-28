@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+	<metadata>
+		<id>CCSWE.nanoFramework.Core</id>
+		<title>CCSWE.nanoFramework.Core</title>
+		<version>1.0</version>
+		<!--<version>$version$</version>-->
+		<authors>Cory Charlton</authors>
+		<owners>Cory Charlton,CCSWE</owners>
+		<!--<license type="file">LICENSE</license>-->
+		<projectUrl>https://github.com/CoryCharlton/CCSWE.nanoFramework.Core</projectUrl>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<developmentDependency>false</developmentDependency>
+		<description>Shared utility classes.</description>
+		<repository type="git" url="https://github.com/CoryCharlton/CCSWE.nanoFramework.Mediator" commit="$commit$"/>
+		<copyright>Copyright (c) Cory Charlton</copyright>
+		<tags>nanoFramework C# csharp netmf netnf ccswe mediator</tags>
+		<dependencies>
+			<dependency id="nanoFramework.CoreLibrary" version="1.14.2"/>
+		</dependencies>
+	</metadata>
+	<files>
+		<file src="CCSWE.nanoFramework.Core\bin\Release\CCSWE.nanoFramework.Core.*" target="lib"/>
+		<!--<file src="LICENSE" target=""/>-->
+	</files>
+</package>
