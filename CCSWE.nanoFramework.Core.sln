@@ -9,10 +9,11 @@ Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "CCSWE.nanoFramework.Core.Un
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{22C2429E-05ED-44D0-A5CE-8B63869F7A70}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GitHub Actions", "GitHub Actions", "{0FD9883D-17C7-4215-A39E-29C2359A963D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GitHub", "GitHub", "{0FD9883D-17C7-4215-A39E-29C2359A963D}"
 	ProjectSection(SolutionItems) = preProject
-		.github\workflows\nf-build-and-publish.yml = .github\workflows\nf-build-and-publish.yml
-		.github\workflows\nf-update-dependencies.yml = .github\workflows\nf-update-dependencies.yml
+		.github\config.yml = .github\config.yml
+		.github\workflows\build-solution.yml = .github\workflows\build-solution.yml
+		.github\workflows\nupdate-dependencies.yml = .github\workflows\nupdate-dependencies.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{41D1ABC9-7901-4A25-9AA0-CD5F876FE062}"
