@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GitHub", "GitHub", "{0FD988
 	ProjectSection(SolutionItems) = preProject
 		.github\workflows\build-solution.yml = .github\workflows\build-solution.yml
 		.github\config.yml = .github\config.yml
-		.github\workflows\nupdate-dependencies.yml = .github\workflows\nupdate-dependencies.yml
+		.github\workflows\update-dependencies.yml = .github\workflows\update-dependencies.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{41D1ABC9-7901-4A25-9AA0-CD5F876FE062}"
