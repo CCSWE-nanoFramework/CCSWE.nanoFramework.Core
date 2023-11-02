@@ -11,8 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GitHub", "GitHub", "{0FD9883D-17C7-4215-A39E-29C2359A963D}"
 	ProjectSection(SolutionItems) = preProject
-		.github\config.yml = .github\config.yml
 		.github\workflows\build-solution.yml = .github\workflows\build-solution.yml
+		.github\config.yml = .github\config.yml
 		.github\workflows\nupdate-dependencies.yml = .github\workflows\nupdate-dependencies.yml
 	EndProjectSection
 EndProject
@@ -22,6 +22,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{41D1ABC9
 		Directory.Build.props = Directory.Build.props
 		nuget.config = nuget.config
 		version.json = version.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{156FD248-5FFD-4FF8-B96A-31F8CFF903D0}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE.md = LICENSE.md
+		README.md = README.md
 	EndProjectSection
 EndProject
 Global
@@ -49,6 +55,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{0FD9883D-17C7-4215-A39E-29C2359A963D} = {22C2429E-05ED-44D0-A5CE-8B63869F7A70}
 		{41D1ABC9-7901-4A25-9AA0-CD5F876FE062} = {22C2429E-05ED-44D0-A5CE-8B63869F7A70}
+		{156FD248-5FFD-4FF8-B96A-31F8CFF903D0} = {22C2429E-05ED-44D0-A5CE-8B63869F7A70}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6B44FC02-FED2-4279-A1E9-8F6F6A9ECC29}
