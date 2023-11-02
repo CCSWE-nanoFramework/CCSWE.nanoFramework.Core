@@ -7,6 +7,36 @@ namespace CCSWE.nanoFramework.Core.UnitTests
     public class EnsureTests
     {
         [TestMethod]
+        public void GetException_returns_ArgumentException()
+        {
+            Assert.IsType(typeof(ArgumentException), Ensure.GetException(typeof(ArgumentException), nameof(EnsureTests)));
+        }
+
+        [TestMethod]
+        public void GetException_returns_ArgumentNullException()
+        {
+            Assert.IsType(typeof(ArgumentNullException), Ensure.GetException(typeof(ArgumentNullException), nameof(EnsureTests)));
+        }
+
+        [TestMethod]
+        public void GetException_returns_ArgumentOutOfRangeException()
+        {
+            Assert.IsType(typeof(ArgumentOutOfRangeException), Ensure.GetException(typeof(ArgumentOutOfRangeException), nameof(EnsureTests)));
+        }
+
+        [TestMethod]
+        public void GetException_returns_IndexOutOfRangeException()
+        {
+            Assert.IsType(typeof(IndexOutOfRangeException), Ensure.GetException(typeof(IndexOutOfRangeException), nameof(EnsureTests)));
+        }
+
+        [TestMethod]
+        public void GetException_returns_InvalidOperationException()
+        {
+            Assert.IsType(typeof(InvalidOperationException), Ensure.GetException(typeof(InvalidOperationException), nameof(EnsureTests)));
+        }
+
+        [TestMethod]
         public void IsInRange_does_not_throw()
         {
             Ensure.IsInRange(nameof(EnsureTests), true);
@@ -109,16 +139,6 @@ namespace CCSWE.nanoFramework.Core.UnitTests
         public void IsValid_throws()
         {
             Assert.ThrowsException(typeof(ArgumentException), () => Ensure.IsValid(nameof(EnsureTests), false));
-        }
-
-        [TestMethod]
-        public void IsValid_throws_correct_exception()
-        {
-            Assert.ThrowsException(typeof(ArgumentException), () => Ensure.IsValid(typeof(ArgumentException), nameof(EnsureTests), false));
-            Assert.ThrowsException(typeof(ArgumentNullException), () => Ensure.IsValid(typeof(ArgumentNullException), nameof(EnsureTests), false));
-            Assert.ThrowsException(typeof(ArgumentOutOfRangeException), () => Ensure.IsValid(typeof(ArgumentOutOfRangeException), nameof(EnsureTests), false));
-            Assert.ThrowsException(typeof(IndexOutOfRangeException), () => Ensure.IsValid(typeof(IndexOutOfRangeException), nameof(EnsureTests), false));
-            Assert.ThrowsException(typeof(InvalidOperationException), () => Ensure.IsValid(typeof(InvalidOperationException), nameof(EnsureTests), false));
         }
     }
 }
