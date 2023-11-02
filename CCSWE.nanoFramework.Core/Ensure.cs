@@ -40,11 +40,43 @@ namespace CCSWE.nanoFramework
         /// </summary>
         /// <param name="name">The name of the parameter we are validating.</param>
         /// <param name="expression">The expression that will be evaluated.</param>
-        /// <param name="message">The message associated with the <see cref="Exception"/></param>
+        /// <param name="message">The message associated with the <see cref="ArgumentOutOfRangeException"/></param>
         /// <exception cref="ArgumentOutOfRangeException">Thrown when the expression evaluates to <c>false</c></exception>.
         public static void IsInRange(string name, bool expression, string? message = null)
         {
             IsValid(typeof(ArgumentOutOfRangeException), name, expression, string.IsNullOrEmpty(message) ? $"The value passed for '{name}' is out of range." : message);
+        }
+
+        /// <summary>
+        /// Throws an <see cref="ArgumentOutOfRangeException"/> if the expression evaluates to <c>false</c>.
+        /// </summary>
+        /// <param name="name">The name of the parameter we are validating.</param>
+        /// <param name="value">The value that will be evaluated.</param>
+        /// <param name="min">The minimum value allowed.</param>
+        /// <param name="max">The maximum value allowed.</param>
+        /// <param name="message">The message associated with the <see cref="ArgumentOutOfRangeException"/></param>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown when the expression evaluates to <c>false</c></exception>.
+        public static void IsInRange(string name, double value, double min, double max, string? message = null)
+        {
+            IsInRange(name, value >= min && value <= max, string.IsNullOrEmpty(message) ? $"The value passed for '{name}' must be between {min} and {max} (inclusive)." : message);
+        }
+
+        /// <inheritdoc cref="IsInRange(string,double,double,double,string?)"/>
+        public static void IsInRange(string name, float value, float min, float max, string? message = null)
+        {
+            IsInRange(name, value >= min && value <= max, string.IsNullOrEmpty(message) ? $"The value passed for '{name}' must be between {min} and {max} (inclusive)." : message);
+        }
+
+        /// <inheritdoc cref="IsInRange(string,double,double,double,string?)"/>
+        public static void IsInRange(string name, int value, int min, int max, string? message = null)
+        {
+            IsInRange(name, value >= min && value <= max, string.IsNullOrEmpty(message) ? $"The value passed for '{name}' must be between {min} and {max} (inclusive)." : message);
+        }
+
+        /// <inheritdoc cref="IsInRange(string,double,double,double,string?)"/>
+        public static void IsInRange(string name, long value, long min, long max, string? message = null)
+        {
+            IsInRange(name, value >= min && value <= max, string.IsNullOrEmpty(message) ? $"The value passed for '{name}' must be between {min} and {max} (inclusive)." : message);
         }
 
         /// <summary>
