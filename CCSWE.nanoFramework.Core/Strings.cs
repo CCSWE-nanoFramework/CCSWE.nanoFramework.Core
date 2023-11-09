@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
 namespace CCSWE.nanoFramework
@@ -8,27 +9,39 @@ namespace CCSWE.nanoFramework
     /// </summary>
     public static class Strings
     {
-        public static string Join(string? separator, params string[]? values)
+        /// <summary>
+        /// Concatenates all the elements of a string array, using the specified separator between each element.
+        /// </summary>
+        /// <param name="separator">The string to use as a separator. <paramref name="separator"/> is included in the returned string only if <paramref name="value"/> has more than one element.</param>
+        /// <param name="value">An array that contains the elements to concatenate.</param>
+        /// <returns>
+        /// A string that consists of the elements in <paramref name="value"/> delimited by the <paramref name="separator"/> string.
+        /// 
+        /// -or-
+        /// 
+        /// <see cref="string.Empty"/> if values has zero elements.
+        /// </returns>
+        public static string Join(string? separator, [NotNull] params string[]? value)
         {
-            Ensure.IsNotNull(nameof(values), values);
+            Ensure.IsNotNull(nameof(value), value);
 
-            if (values.Length == 0)
+            if (value.Length == 0)
             {
                 return string.Empty;
             }
 
-            if (values.Length == 1)
+            if (value.Length == 1)
             {
-                return values[0];
+                return value[0];
             }
 
             var join = new StringBuilder();
             
-            for (var i = 0; i < values.Length; i++)
+            for (var i = 0; i < value.Length; i++)
             {
-                join.Append(values[i]);
+                join.Append(value[i]);
 
-                if (i < values.Length - 1)
+                if (i < value.Length - 1)
                 {
                     join.Append(separator);
                 }

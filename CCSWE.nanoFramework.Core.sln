@@ -19,8 +19,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{41D1ABC9-7901-4A25-9AA0-CD5F876FE062}"
 	ProjectSection(SolutionItems) = preProject
 		CCSWE.nanoFramework.Core.nuspec = CCSWE.nanoFramework.Core.nuspec
-		Directory.Build.props = Directory.Build.props
-		nuget.config = nuget.config
 		version.json = version.json
 	EndProjectSection
 EndProject

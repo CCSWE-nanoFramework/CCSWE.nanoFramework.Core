@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace CCSWE.nanoFramework
 {
@@ -111,7 +112,7 @@ namespace CCSWE.nanoFramework
         /// <param name="value">The value that will be evaluated.</param>
         /// <param name="message">The message associated with the <see cref="Exception"/></param>
         /// <exception cref="ArgumentNullException">Thrown when the value is <c>null</c></exception>.
-        public static void IsNotNull(string name, object? value, string? message = null)
+        public static void IsNotNull(string name, [NotNull] object? value, string? message = null)
         {
             if (value is not null)
             {
@@ -128,8 +129,9 @@ namespace CCSWE.nanoFramework
         /// <param name="value">The value that will be evaluated.</param>
         /// <param name="message">The message associated with the <see cref="Exception"/></param>
         /// <exception cref="ArgumentException">Thrown when the value is <c>null</c> or <c>whitespace</c>.</exception>.
-        public static void IsNotNullOrEmpty(string name, string? value, string? message = null)
+        public static void IsNotNullOrEmpty(string name, [NotNull] string? value, string? message = null)
         {
+            // TODO: Update string.IsNullOrEmpty to have the [NotNull] attribute too
             if (!string.IsNullOrEmpty(value))
             {
                 return;
