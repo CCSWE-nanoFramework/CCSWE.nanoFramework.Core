@@ -131,8 +131,7 @@ namespace CCSWE.nanoFramework
         /// <exception cref="ArgumentException">Thrown when the value is <c>null</c> or <c>whitespace</c>.</exception>.
         public static void IsNotNullOrEmpty(string name, [NotNull] string? value, string? message = null)
         {
-            // TODO: Update string.IsNullOrEmpty to have the [NotNull] attribute too
-            if (!string.IsNullOrEmpty(value))
+            if (!Strings.IsNullOrEmpty(value))
             {
                 return;
             }
