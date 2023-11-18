@@ -5,7 +5,7 @@ using System.Text;
 namespace CCSWE.nanoFramework
 {
     /// <summary>
-    /// Extension methods for <see cref="String"/>.
+    /// Extension methods for <see cref="string"/>.
     /// </summary>
     public static class Strings
     {
