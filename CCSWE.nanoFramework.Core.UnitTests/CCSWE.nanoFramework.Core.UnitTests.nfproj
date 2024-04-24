@@ -26,12 +26,16 @@
   <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.props" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.props')" />
   <PropertyGroup>
     <RunSettingsFilePath>$(MSBuildProjectDirectory)\nano.runsettings</RunSettingsFilePath>
+    <LangVersion>default</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="CallerArgumentExpressionAttributeTests.cs" />
+    <Compile Include="CallerMemberNameAttributeTests.cs" />
     <Compile Include="EnsureTests.cs" />
     <Compile Include="IO\PathTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringsTest.cs" />
+    <Compile Include="ThrowHelperTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib">
