@@ -1,5 +1,4 @@
-﻿using System;
-using CCSWE.nanoFramework.IO;
+﻿using CCSWE.nanoFramework.IO;
 using nanoFramework.TestFramework;
 
 namespace CCSWE.nanoFramework.Core.UnitTests.IO

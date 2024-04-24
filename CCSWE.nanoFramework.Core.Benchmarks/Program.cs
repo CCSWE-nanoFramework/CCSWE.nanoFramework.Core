@@ -1,6 +1,7 @@
+#if DEBUG
 using System;
 using System.Diagnostics;
-using System.Threading;
+#endif
 using nanoFramework.Benchmark;
 
 namespace CCSWE.nanoFramework.Core.Benchmarks
