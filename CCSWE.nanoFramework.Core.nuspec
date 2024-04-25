@@ -8,13 +8,13 @@
     <authors>Cory Charlton</authors>
     <owners>Cory Charlton,CCSWE</owners>
     <license type="file">LICENSE.md</license>
-    <projectUrl>https://github.com/CoryCharlton/CCSWE.nanoFramework.Core</projectUrl>
+    <projectUrl>https://github.com/CCSWE-nanoFramework/CCSWE.nanoFramework.Core</projectUrl>
     <icon>images\ccswe-logo.png</icon>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <readme>README.md</readme>
     <developmentDependency>false</developmentDependency>
     <description>Shared utility classes.</description>
-    <repository type="git" url="https://github.com/CoryCharlton/CCSWE.nanoFramework.Core" commit="$commit$" />
+    <repository type="git" url="https://github.com/CCSWE-nanoFramework/CCSWE.nanoFramework.Core" commit="$commit$" />
     <copyright>Copyright (c) Cory Charlton</copyright>
     <tags>nanoFramework C# csharp netmf netnf ccswe core</tags>
     <dependencies>
