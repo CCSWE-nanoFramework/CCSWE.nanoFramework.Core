@@ -9,6 +9,7 @@
     <owners>Cory Charlton,CCSWE</owners>
     <license type="file">LICENSE.md</license>
     <projectUrl>https://github.com/CoryCharlton/CCSWE.nanoFramework.Core</projectUrl>
+    <icon>images\ccswe-logo.jpg</icon>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <readme>README.md</readme>
     <developmentDependency>false</developmentDependency>
@@ -23,6 +24,7 @@
   </metadata>
   <files>
     <file src="CCSWE.nanoFramework.Core\bin\Release\CCSWE.nanoFramework.Core.*" target="lib" />
+    <file src="ccswe-logo.jpg" target="images" />
     <file src="LICENSE.md" target="" />
     <file src="README.md" target="" />
   </files>
