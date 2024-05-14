@@ -22,8 +22,6 @@
   </PropertyGroup>
   <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.props" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.props')" />
   <ItemGroup>
-    <Compile Include="CallerArgumentExpressionAttribute.cs" />
-    <Compile Include="CallerMemberNameAttribute.cs" />
     <Compile Include="Ensure.cs" />
     <Compile Include="IO\Path.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -33,6 +31,9 @@
   <ItemGroup>
     <Reference Include="mscorlib">
       <HintPath>..\packages\nanoFramework.CoreLibrary.1.15.5\lib\mscorlib.dll</HintPath>
+    </Reference>
+    <Reference Include="nanoFramework.System.Runtime">
+      <HintPath>..\packages\nanoFramework.System.Runtime.1.0.27\lib\nanoFramework.System.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="nanoFramework.System.Runtime, Version=1.0.16.0, Culture=neutral, PublicKeyToken=c07d481e9758c731">
       <HintPath>..\packages\nanoFramework.System.Runtime.1.0.16\lib\nanoFramework.System.Runtime.dll</HintPath>
