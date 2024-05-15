@@ -20,8 +20,8 @@ namespace CCSWE.nanoFramework
             }
         }
 
-        /// <summary>Throws an <see cref="ArgumentNullException"/> if <paramref name="argument"/> is null.</summary>
-        /// <param name="argument">The reference type argument to validate as non-null.</param>
+        /// <summary>Throws an <see cref="ArgumentNullException"/> if <paramref name="argument"/> is null or an <see cref="ArgumentException"/> if <paramref name="argument"/> is an empty string.</summary>
+        /// <param name="argument">The reference type argument to validate as non-null or empty.</param>
         /// <param name="paramName">The name of the parameter with which <paramref name="argument"/> corresponds.</param>
         public static void ThrowIfNullOrEmpty([NotNull] string? argument, [CallerArgumentExpression("argument")] string? paramName = null)
         {
