@@ -22,6 +22,7 @@
     <TestProjectType>UnitTest</TestProjectType>
     <TargetFrameworkVersion>v1.0</TargetFrameworkVersion>
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <LangVersion>default</LangVersion>
   </PropertyGroup>
   <Import Project="$(NanoFrameworkProjectSystemPath)NFProjectSystem.props" Condition="Exists('$(NanoFrameworkProjectSystemPath)NFProjectSystem.props')" />
   <PropertyGroup>
@@ -29,11 +30,14 @@
     <LangVersion>default</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Text\DateTimeConverterTests.cs" />
     <Compile Include="EnsureTests.cs" />
     <Compile Include="IO\PathTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Text\StringFormatterTests.cs" />
     <Compile Include="StringsTest.cs" />
     <Compile Include="ThrowHelperTests.cs" />
+    <Compile Include="Text\TimeSpanConverterTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib">
