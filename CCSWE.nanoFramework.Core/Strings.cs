@@ -45,25 +45,24 @@ namespace CCSWE.nanoFramework
         /// </returns>
         public static string Join(string? separator, params string[]? value)
         {
-            Ensure.IsNotNull(nameof(value), value);
+            ThrowHelper.ThrowIfNull(value);
 
-            if (value.Length == 0)
+            switch (value.Length)
             {
-                return string.Empty;
-            }
-
-            if (value.Length == 1)
-            {
-                return value[0];
+                case 0:
+                    return string.Empty;
+                case 1:
+                    return value[0];
             }
 
             var join = new StringBuilder();
-            
-            for (var i = 0; i < value.Length; i++)
+            var length = value.Length;
+
+            for (var i = 0; i < length; i++)
             {
                 join.Append(value[i]);
 
-                if (i < value.Length - 1)
+                if (i < length - 1)
                 {
                     join.Append(separator);
                 }
