@@ -2,6 +2,7 @@
 using System;
 using System.Diagnostics;
 #endif
+using System.Threading;
 using nanoFramework.Benchmark;
 
 namespace CCSWE.nanoFramework.Core.Benchmarks
@@ -17,6 +18,7 @@ namespace CCSWE.nanoFramework.Core.Benchmarks
 #endif
 
             BenchmarkRunner.RunClass(typeof(EnsureBenchmarks));
+            Thread.Sleep(Timeout.Infinite);
         }
     }
 }

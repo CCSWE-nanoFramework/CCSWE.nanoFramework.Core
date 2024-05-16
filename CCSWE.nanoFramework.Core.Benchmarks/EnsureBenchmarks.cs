@@ -11,57 +11,63 @@ namespace CCSWE.nanoFramework.Core.Benchmarks
         [Benchmark]
         public void IsInRange_Double()
         {
-            Ensure.IsInRange(nameof(IsInRange_Double), 0d, 0, 1);
+            Ensure.IsInRange(0d, 0, 1, nameof(IsInRange_Double));
         }
 
         [Benchmark]
         public void IsInRange_Expression()
         {
-            var value = 0d;
-            var min = 0d;
-            var max = 1d;
+            const double value = 0d;
+            const double min = 0d;
+            const double max = 1d;
 
-            Ensure.IsInRange(nameof(IsInRange_Expression), value >= min && value <= max);
+            #pragma warning disable CS8794 // The input always matches the provided pattern.
+            // ReSharper disable once ConditionIsAlwaysTrueOrFalse
+            Ensure.IsInRange(value is >= min and <= max, nameof(IsInRange_Expression));
+            #pragma warning restore CS8794 // The input always matches the provided pattern.
         }
 
         [Benchmark]
         public void IsInRange_Float()
         {
-            Ensure.IsInRange(nameof(IsInRange_Float), 0f, 0, 1);
+            Ensure.IsInRange(0f, 0, 1);
         }
 
         [Benchmark]
         public void IsInRange_Int()
         {
-            Ensure.IsInRange(nameof(IsInRange_Int), 0, 0, 1);
+            Ensure.IsInRange(0, 0, 1);
         }
 
         [Benchmark]
         public void IsInRange_Long()
         {
-            Ensure.IsInRange(nameof(IsInRange_Long), 0L, 0, 1);
+            Ensure.IsInRange(0L, 0, 1);
         }
 
         [Benchmark]
         public void IsNotNull()
         {
-            Ensure.IsNotNull(nameof(IsNotNull), StringValue);
+            Ensure.IsNotNull(StringValue);
         }
 
         [Benchmark]
         public void IsNotNullOrEmpty()
         {
-            Ensure.IsNotNullOrEmpty(nameof(IsNotNullOrEmpty), StringValue);
+            Ensure.IsNotNullOrEmpty(StringValue);
         }
 
         [Benchmark]
         public void IsValid()
         {
-            var value = 0d;
-            var min = 0d;
-            var max = 1d;
+            const double value = 0d;
+            const double min = 0d;
+            const double max = 1d;
 
-            Ensure.IsValid(nameof(IsValid), value >= min && value <= max);
+            #pragma warning disable CS8794 // The input always matches the provided pattern.
+            // ReSharper disable once ConditionIsAlwaysTrueOrFalse
+            Ensure.IsValid(value is >= min and <= max);
+            #pragma warning restore CS8794 // The input always matches the provided pattern.
         }
     }
 }
