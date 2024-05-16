@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Runtime.CompilerServices;
 
 namespace CCSWE.nanoFramework
 {
@@ -8,18 +9,18 @@ namespace CCSWE.nanoFramework
     /// <summary>
     /// A helper class for ensuring parameter conditions.
     /// </summary>
-    public static class Ensure
+    public static partial class Ensure
     {
-        internal static Exception GetException(Type exception, string name, string? message = null)
+        internal static Exception GetException(Type exception, string paramName, string? message = null)
         {
             if (exception == typeof(ArgumentNullException))
             {
-                return new ArgumentNullException(name, message);
+                return new ArgumentNullException(paramName, message);
             }
 
             if (exception == typeof(ArgumentOutOfRangeException))
             {
-                return new ArgumentOutOfRangeException(name, message);
+                return new ArgumentOutOfRangeException(paramName, message);
             }
 
             if (exception == typeof(IndexOutOfRangeException))
@@ -33,127 +34,61 @@ namespace CCSWE.nanoFramework
             }
 
             // Defaulting to ArgumentException. This all worked better with generics :)
-            return new ArgumentException(message, name);
-        }
-
-        /// <summary>
-        /// Throws an <see cref="ArgumentOutOfRangeException"/> if the expression evaluates to <c>false</c>.
-        /// </summary>
-        /// <param name="name">The name of the parameter we are validating.</param>
-        /// <param name="expression">The expression that will be evaluated.</param>
-        /// <param name="message">The message associated with the <see cref="ArgumentOutOfRangeException"/></param>
-        /// <exception cref="ArgumentOutOfRangeException">Thrown when the expression evaluates to <c>false</c></exception>.
-        public static void IsInRange(string name, bool expression, string? message = null)
-        {
-            if (expression)
-            {
-                return;
-            }
-
-            throw GetException(typeof(ArgumentOutOfRangeException), name, string.IsNullOrEmpty(message) ? $"The value passed for '{name}' is out of range." : message);
-        }
-
-        /// <summary>
-        /// Throws an <see cref="ArgumentOutOfRangeException"/> if the expression evaluates to <c>false</c>.
-        /// </summary>
-        /// <param name="name">The name of the parameter we are validating.</param>
-        /// <param name="value">The value that will be evaluated.</param>
-        /// <param name="min">The minimum value allowed.</param>
-        /// <param name="max">The maximum value allowed.</param>
-        /// <param name="message">The message associated with the <see cref="ArgumentOutOfRangeException"/></param>
-        /// <exception cref="ArgumentOutOfRangeException">Thrown when the expression evaluates to <c>false</c></exception>.
-        public static void IsInRange(string name, double value, double min, double max, string? message = null)
-        {
-            if (value >= min && value <= max)
-            {
-                return;
-            }
-
-            throw GetException(typeof(ArgumentOutOfRangeException), name, string.IsNullOrEmpty(message) ? $"The value passed for '{name}' must be between {min} and {max} (inclusive)." : message);
-        }
-
-        /// <inheritdoc cref="IsInRange(string,double,double,double,string?)"/>
-        public static void IsInRange(string name, float value, float min, float max, string? message = null)
-        {
-            if (value >= min && value <= max)
-            {
-                return;
-            }
-
-            throw GetException(typeof(ArgumentOutOfRangeException), name, string.IsNullOrEmpty(message) ? $"The value passed for '{name}' must be between {min} and {max} (inclusive)." : message);
-        }
-
-        /// <inheritdoc cref="IsInRange(string,double,double,double,string?)"/>
-        public static void IsInRange(string name, int value, int min, int max, string? message = null)
-        {
-            if (value >= min && value <= max)
-            {
-                return;
-            }
-
-            throw GetException(typeof(ArgumentOutOfRangeException), name, string.IsNullOrEmpty(message) ? $"The value passed for '{name}' must be between {min} and {max} (inclusive)." : message);
-        }
-
-        /// <inheritdoc cref="IsInRange(string,double,double,double,string?)"/>
-        public static void IsInRange(string name, long value, long min, long max, string? message = null)
-        {
-            if (value >= min && value <= max)
-            {
-                return;
-            }
-
-            throw GetException(typeof(ArgumentOutOfRangeException), name, string.IsNullOrEmpty(message) ? $"The value passed for '{name}' must be between {min} and {max} (inclusive)." : message);
+            return new ArgumentException(message, paramName);
         }
 
         /// <summary>
         /// Throws an <see cref="ArgumentNullException"/> if the value is <c>null</c>.
         /// </summary>
-        /// <param name="name">The name of the parameter we are validating.</param>
+        /// <param name="paramName">The name of the parameter we are validating.</param>
         /// <param name="value">The value that will be evaluated.</param>
         /// <param name="message">The message associated with the <see cref="Exception"/></param>
         /// <exception cref="ArgumentNullException">Thrown when the value is <c>null</c></exception>.
-        public static void IsNotNull(string name, [NotNull] object? value, string? message = null)
+        public static void IsNotNull([NotNull] object? value, string? message = null, [CallerArgumentExpression(nameof(value))] string paramName = null!)
         {
             if (value is not null)
             {
                 return;
             }
 
-            throw GetException(typeof(ArgumentNullException), name, string.IsNullOrEmpty(message) ? $"The value passed for '{name}' is null." : message);
+            throw GetException(typeof(ArgumentNullException), paramName, string.IsNullOrEmpty(message) ? $"The value passed for '{paramName}' is null." : message);
         }
 
+
         /// <summary>
-        /// Throws an <see cref="ArgumentException"/> if the value is <c>null</c> or <c>whitespace</c>.
+        /// Throws an <see cref="ArgumentException"/> if the value is <c>null</c> or empty.
         /// </summary>
-        /// <param name="name">The name of the parameter we are validating.</param>
+        /// <param name="paramName">The name of the parameter we are validating.</param>
         /// <param name="value">The value that will be evaluated.</param>
         /// <param name="message">The message associated with the <see cref="Exception"/></param>
-        /// <exception cref="ArgumentException">Thrown when the value is <c>null</c> or <c>whitespace</c>.</exception>.
-        public static void IsNotNullOrEmpty(string name, [NotNull] string? value, string? message = null)
+        /// <exception cref="ArgumentException">Thrown when the value is <c>null</c> or empty.</exception>
+        public static void IsNotNullOrEmpty([NotNull] string? value, string? message = null, [CallerArgumentExpression(nameof(value))] string paramName = null!)
         {
-            if (!Strings.IsNullOrEmpty(value))
+            IsNotNull(value, message, paramName);
+
+            if (value.Length != 0)
             {
                 return;
             }
 
-            throw GetException(typeof(ArgumentException), name, string.IsNullOrEmpty(message) ? $"The value passed for '{name}' is empty or null." : message);
+            throw GetException(typeof(ArgumentException), paramName, string.IsNullOrEmpty(message) ? $"The value passed for '{paramName}' cannot be empty." : message);
         }
+
 
         /// <summary>
         /// Throws an <see cref="ArgumentException"/> if the expression evaluates to <c>false</c>.
         /// </summary>
-        /// <param name="name">The name of the parameter we are validating.</param>
         /// <param name="expression">The expression that will be evaluated.</param>
-        /// <param name="message">The message associated with the <see cref="Exception"/></param>
-        /// <exception cref="ArgumentException">Thrown when the expression evaluates to <c>false</c></exception>.
-        public static void IsValid(string name, bool expression, string? message = null)
+        /// <param name="message">The message associated with the <see cref="Exception"/>.</param>
+        /// <param name="paramName">The name of the parameter we are validating.</param>
+        public static void IsValid(bool expression, string? message = null, [CallerArgumentExpression(nameof(expression))] string paramName = null!)
         {
             if (expression)
             {
                 return;
             }
 
-            throw GetException(typeof(ArgumentException), name, string.IsNullOrEmpty(message) ? $"The value passed for '{name}' is not valid." : message);
+            throw GetException(typeof(ArgumentException), paramName, string.IsNullOrEmpty(message) ? $"The value passed for '{paramName}' is not valid." : message);
         }
     }
 }
