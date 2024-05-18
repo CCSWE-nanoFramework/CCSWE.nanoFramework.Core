@@ -9,31 +9,31 @@ namespace CCSWE.nanoFramework.Core.UnitTests
         [TestMethod]
         public void GetException_returns_ArgumentException()
         {
-            Assert.IsType(typeof(ArgumentException), Ensure.GetException(typeof(ArgumentException), nameof(EnsureTests)));
+            Assert.IsInstanceOfType(Ensure.GetException(typeof(ArgumentException), nameof(EnsureTests)), typeof(ArgumentException));
         }
 
         [TestMethod]
         public void GetException_returns_ArgumentNullException()
         {
-            Assert.IsType(typeof(ArgumentNullException), Ensure.GetException(typeof(ArgumentNullException), nameof(EnsureTests)));
+            Assert.IsInstanceOfType(Ensure.GetException(typeof(ArgumentNullException), nameof(EnsureTests)), typeof(ArgumentNullException));
         }
 
         [TestMethod]
         public void GetException_returns_ArgumentOutOfRangeException()
         {
-            Assert.IsType(typeof(ArgumentOutOfRangeException), Ensure.GetException(typeof(ArgumentOutOfRangeException), nameof(EnsureTests)));
+            Assert.IsInstanceOfType(Ensure.GetException(typeof(ArgumentOutOfRangeException), nameof(EnsureTests)), typeof(ArgumentOutOfRangeException));
         }
 
         [TestMethod]
         public void GetException_returns_IndexOutOfRangeException()
         {
-            Assert.IsType(typeof(IndexOutOfRangeException), Ensure.GetException(typeof(IndexOutOfRangeException), nameof(EnsureTests)));
+            Assert.IsInstanceOfType(Ensure.GetException(typeof(IndexOutOfRangeException), nameof(EnsureTests)), typeof(IndexOutOfRangeException));
         }
 
         [TestMethod]
         public void GetException_returns_InvalidOperationException()
         {
-            Assert.IsType(typeof(InvalidOperationException), Ensure.GetException(typeof(InvalidOperationException), nameof(EnsureTests)));
+            Assert.IsInstanceOfType(Ensure.GetException(typeof(InvalidOperationException), nameof(EnsureTests)), typeof(InvalidOperationException));
         }
 
         [TestMethod]
