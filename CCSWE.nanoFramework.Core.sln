@@ -13,8 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GitHub", "GitHub", "{0FD988
 	ProjectSection(SolutionItems) = preProject
 		.github\workflows\build-solution.yml = .github\workflows\build-solution.yml
 		.github\config.yml = .github\config.yml
-		.github\dependabot.yml = .github\dependabot.yml
 		.github\workflows\pull-request-checks.yml = .github\workflows\pull-request-checks.yml
+		.github\dependabot.yml.nowork = .github\dependabot.yml.nowork
 		.github\workflows\update-dependencies.yml = .github\workflows\update-dependencies.yml
 	EndProjectSection
 EndProject
